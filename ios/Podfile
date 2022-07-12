@@ -1,7 +1,7 @@
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 use_modular_headers!
-use_frameworks!()
+use_frameworks!
 platform :ios, '11.0'
 install! 'cocoapods', :deterministic_uuids => false
 target 'Test' do
@@ -33,7 +33,7 @@ target 'Test' do
      installer.pod_targets.each do |pod|
          if $static_framework.include?(pod.name)
            def pod.build_type;
-             Pod::Target::BuildType.static_library
+             Pod::BuildType.static_library
            end
          end
        end
